@@ -1,22 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Compound Interest Calculator</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 <body>
     <div id="app">
         <form>
-            <div class="field">
-                <label>First Name</label>
-                <input type="number" name="amount" placeholder="Monthly Amount">
-            </div>
-            <div class="field">
-                <label>Last Name</label>
-                <input type="number" name="duration" placeholder="Duration (in years)">
+            <div class="form-row align-items-center">
+                <div class="col-auto">
+                    <label>Monthly Amount</label>
+                    <input class="form-control" v-model="amount" type="number" name="amount" placeholder="Monthly Amount">
+                </div>
+                <div class="col-auto">
+                    <label>Duration</label>
+                    <input class="form-control" v-model="duration" type="number" name="duration" placeholder="Duration (in years)">
+                </div>
+                <div class="col-auto">
+                    <label>Interest Rate</label>
+                    <input class="form-control" v-model="rate" type="number" name="rate" placeholder="Rate">
+                </div>
             </div>
 
+            <button class="btn btn-primary" v-on:click="calculateBalance">Calculate Balance</button>
+
         </form>
+
+        <div>
+            <h2>Balance: {{ balance }}</h2>
+
+        </div>
 
     </div>
 
